@@ -6,7 +6,7 @@ import tensorflow as tf
 import streamlit as st
 
 # Load model 
-model = load_model('app/model/banana_resnet50_model_20-epochs.h5')
+model = load_model('./model/banana_resnet50_model_20-epochs.h5') 
 
 # Define classes 
 CLASS_NAMES = ['Pestalotiopsis', 'Cordana', 'Healthy', 'Sigatoka']

@@ -7,7 +7,7 @@ Library yang digunakan dalam project ini yaitu:
 ```python
 - streamlit==latest
 - numpy==latest
-- opencv-python==4.8.1.78
+- opencv-python==latest
 - tensorflow ==latest
 ```
 
