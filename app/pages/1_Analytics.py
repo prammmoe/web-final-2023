@@ -32,14 +32,16 @@ opencv_image.shape = (1, 224, 224, 3)
 
 # Prediction logic
 def prediction(model):
-    pred = model.predict(opencv_image)
-    result = CLASS_NAMES[np.argmax(pred)]
-    st.title('This is a ' + result + ' banana leaf.')
+    with st.status("Predicting data...", expanded=True) as status:
+        pred = model.predict(opencv_image)
+        result = CLASS_NAMES[np.argmax(pred)]
+        st.text('This is a ' + result + ' banana leaf.')
+        status.update(label="Prediction complete!", state="complete", expanded=False)
 
 col1, col2, col3 = st.columns(3)
 
 with col1: 
-    model = load_model('./model/resnet/banana_resnet50_model.h5')
+    model = load_model('./model/resnet/banana_resnet50_model_20-epochs.h5')
     st.header("ResNet50 Predictions")
     if submit:
         if uploaded_file is not None:
