@@ -33,4 +33,4 @@ with col1:
 with col2: 
     st.image("./res/image/home_illustration.png")
 
-st.text('PS: You can also choose your the models that you want to try!')
+st.text('PS: You can also choose the models that you want to try!')

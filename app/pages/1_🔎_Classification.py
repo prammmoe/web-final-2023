@@ -47,8 +47,12 @@ if selected == "All Models":
         with st.status("Predicting data...", expanded=True) as status:
             pred = model.predict(opencv_image)
             result = CLASS_NAMES[np.argmax(pred)]
-            # Coba tambahin prediction confidence
-            st.text('This is a ' + result + ' banana leaf.')
+            tempdict = {}
+            for idx, value in enumerate(pred[0]):
+                tempdict[CLASS_NAMES[idx]] = value
+            st.write(tempdict)
+    
+            st.subheader('This is a ' + result + ' banana leaf.')
             status.update(label="Prediction complete!", state="complete", expanded=False)
 
     col1, col2, col3 = st.columns(3)
@@ -117,7 +121,7 @@ if selected == "ResNet50":
             tempdict = {}
             for idx, value in enumerate(pred[0]):
                 tempdict[CLASS_NAMES[idx]] = value
-            st.write(tempdict) # ini masih error
+            st.write(tempdict)
     
             st.subheader('This is a ' + result + ' banana leaf.')
             status.update(label="Prediction complete!", state="complete", expanded=False)
@@ -161,8 +165,12 @@ if selected == "MobileNetV3":
         with st.status("Predicting data...", expanded=True) as status:
             pred = model.predict(opencv_image)
             result = CLASS_NAMES[np.argmax(pred)]
-            # Coba tambahin prediction confidence
-            st.text('This is a ' + result + ' banana leaf.')
+            tempdict = {}
+            for idx, value in enumerate(pred[0]):
+                tempdict[CLASS_NAMES[idx]] = value
+            st.write(tempdict)
+    
+            st.subheader('This is a ' + result + ' banana leaf.')
             status.update(label="Prediction complete!", state="complete", expanded=False)
     
     model = load_model('./model/mobilenetv3/banana_mobile_net_v3_model_10_.h5')
@@ -204,8 +212,12 @@ if selected == "EfficientNetB7":
         with st.status("Predicting data...", expanded=True) as status:
             pred = model.predict(opencv_image)
             result = CLASS_NAMES[np.argmax(pred)]
-            # Coba tambahin prediction confidence
-            st.text('This is a ' + result + ' banana leaf.')
+            tempdict = {}
+            for idx, value in enumerate(pred[0]):
+                tempdict[CLASS_NAMES[idx]] = value
+            st.write(tempdict)
+    
+            st.subheader('This is a ' + result + ' banana leaf.')
             status.update(label="Prediction complete!", state="complete", expanded=False)
     
     model = load_model('./model/efficientnet/banana_efficientnetb7_model_10_.h5')
