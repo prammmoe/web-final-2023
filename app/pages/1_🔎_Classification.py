@@ -114,10 +114,12 @@ if selected == "ResNet50":
         with st.status("Predicting data...", expanded=True) as status:
             pred = model.predict(opencv_image)
             result = CLASS_NAMES[np.argmax(pred)]
-            for i in pred[0]:
-                st.write(f"{round(i, 3) * 100}%")
-            # Coba tambahin prediction confidence
-            st.text('This is a ' + result + ' banana leaf.')
+            tempdict = {}
+            for idx, value in enumerate(pred[0]):
+                tempdict[CLASS_NAMES[idx]] = value
+            st.write(tempdict) # ini masih error
+    
+            st.subheader('This is a ' + result + ' banana leaf.')
             status.update(label="Prediction complete!", state="complete", expanded=False)
     
     model = load_model('./model/resnet/banana_resnet50_model_20-epochs.h5')

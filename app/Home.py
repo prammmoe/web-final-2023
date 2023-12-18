@@ -8,15 +8,14 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
-st.title('Welcome to LeafDoc')
-st.write('_Banana Edition_')
-st.subheader('A tool to classify disease in banana leaves.')
-st.divider()
-
 # Define the app title
 col1, col2 = st.columns([3, 2])
 
-with col1: 
+with col1:
+    st.title('Welcome to LeafDoc')
+    st.write('_Banana Edition_')
+    st.subheader('A tool to classify disease in banana leaves.')
+    st.divider() 
     st.header('How to use')
     st.markdown(
         """
@@ -28,4 +27,10 @@ with col1:
     )
 
     st.write('')
-    st.warning('Make sure you uploaded a banana leaf picture or the models will not running')
+    st.write('')
+    st.warning('**Caution**: Make sure you uploaded a banana leaf picture or the models will not running')
+
+with col2: 
+    st.image("./res/image/home_illustration.png")
+
+st.text('PS: You can also choose your the models that you want to try!')
