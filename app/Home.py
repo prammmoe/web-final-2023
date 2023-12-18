@@ -1,7 +1,5 @@
 # Library
 import streamlit as st
-from streamlit_option_menu import option_menu
-
 
 st.set_page_config(
     page_title="Banana Leaf Disease Classification App",
@@ -10,16 +8,24 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
-# selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
-#     icons=['house', 'cloud-upload', "list-task", 'gear'], 
-#     menu_icon="cast", default_index=0, orientation="horizontal")
-# selected2
+st.title('Welcome to LeafDoc')
+st.write('_Banana Edition_')
+st.subheader('A tool to classify disease in banana leaves.')
+st.divider()
 
 # Define the app title
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([3, 2])
 
 with col1: 
-    st.title('Banana Leaf Disease Classification App')
+    st.header('How to use')
+    st.markdown(
+        """
+        1. Go into **Classification** section
+        2. Upload a banana leaf picture
+        3. Click predict
+        4. Wait for your results to came up
+        """
+    )
 
-with col2:
-    st.image("./res/image/download.jpeg")
+    st.write('')
+    st.warning('Make sure you uploaded a banana leaf picture or the models will not running')
